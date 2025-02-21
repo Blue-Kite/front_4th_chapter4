@@ -12,6 +12,8 @@
 
 - 작업 단계
 
+  0. 최신 우분투 환경에서 실행됨
+
   1. 저장소 코드를 워크플로우 환경으로 가져옴
 
   2. `npm ci`로 package-lock.json 기반 정확한 버전 설치
@@ -56,10 +58,12 @@ CloudFront: AWS CDN 서비스, 엣지 로케이션을 통해 콘텐츠 전송, �
 
 ### 캐시 무효화(Cache Invalidation)
 
-CloudFront의 엣지 로케이션에 저장된 캐시를 강제로 삭제하여, 새로운 콘텐츠를 가져오게 하는 기능, 비용 발생 가능
+CloudFront의 엣지 로케이션에 저장된 캐시를 강제로 삭제해 새로운 콘텐츠를 가져오게 하는 기능, 비용 발생할 수 있음
 
 ### Repository secret과 환경변수
 
 저장소 설정에서 관리되는 암호화된 환경변수, GitHub Actions 워크플로우에서 사용
 
 현재 프로젝트에서는 S3, cloudfront, access 관련 키를 관리
+
+## 성능 분석
