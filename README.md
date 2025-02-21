@@ -67,3 +67,21 @@ CloudFront의 엣지 로케이션에 저장된 캐시를 강제로 삭제해 새
 현재 프로젝트에서는 S3, cloudfront, access 관련 키를 관리
 
 ## 성능 분석
+
+- S3
+  ![alt text](image-5.png)
+
+- cloudfront
+  ![alt text](image-6.png)
+
+| 항목                          | S3     | CloudFront + S3 |
+| ----------------------------- | ------ | --------------- |
+| TTFB                          | 883ms  | 581ms           |
+| First Contentful Paint(FCP)   | 1.58s  | 1.19s           |
+| Largest Contentful Paint(LCP) | 4.27s  | 1.97s           |
+| Total Requests                | 13     | 13              |
+| Total Transfer Size           | 405 kB | 31.3 kB         |
+
+FCP와 LCP가 더 빠르며 요청수는 동일해도 전송 크기가 더 작다.
+
+따라서 cloudfront가 전반적으로 더 성능이 우수하다.
